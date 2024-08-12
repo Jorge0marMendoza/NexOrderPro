@@ -89,23 +89,23 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
  "productId": 1,
  "quantity": 2
 }
-- **Success Response**: 
-- Code: 201
-- Content: Created order object
+- **Success Response**:
+  - **Code**: 201  
+  - **Content**: Created order object
 - **Error Response**:
-- Code: 400
-- Content: { "error": "Invalid order data" }
-
+- **Code**: 400  
+  - **Content**: `{ "error": "Invalid order data" }`
 
 ### Get All Orders
 - **URL**: `/api/orders`
 - **Method**: `GET`
-- **Success Response**: 
-- Code: 200
-- Content: Array of order objects
-- **Error Response**:
-- Code: 500
-- Content: { "error": "An error occurred while processing your request." }
+- **Success Response**:  
+  - **Code**: 200  
+  - **Content**: Array of order objects  
+- **Error Response**:  
+  - **Code**: 500  
+  - **Content**: `{ "error": "An error occurred while processing your request." }`
+
 
 
 
