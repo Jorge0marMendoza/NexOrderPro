@@ -34,12 +34,12 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
 3. Install Node.js and npm if you haven't already.
 
 4. Navigate to the ClientApp directory and install React dependencies:
-   cd ClientApp
-   npm install
+   - cd ClientApp
+   - npm install
 
 5. Return to the root directory and restore .NET packages:
-   cd ..
-   dotnet restore
+   - cd ..
+   - dotnet restore
    
 6. Update the database with the latest migrations:
    dotnet ef database update
@@ -47,7 +47,7 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
 ## Running the Application
 
 1. In the root directory, start the ASP.NET Core application:
-   dotnet run
+   - dotnet run
 
 2. The application should now be running. Open a web browser and navigate to `https://localhost:5001` (or the port specified in your launchSettings.json).
 
@@ -89,6 +89,7 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
  "productId": 1,
  "quantity": 2
 }
+```
 - **Success Response**:
   - **Code**: 201  
   - **Content**: Created order object
