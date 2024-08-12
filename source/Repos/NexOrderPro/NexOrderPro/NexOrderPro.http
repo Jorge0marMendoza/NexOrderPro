@@ -1,0 +1,6 @@
+@NexOrderPro_HostAddress = http://localhost:5278
+
+GET {{NexOrderPro_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
