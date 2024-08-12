@@ -26,8 +26,8 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
 ## Setup and Installation
 
 1. Clone the repository:
-   git clone https://github.com/Jorge0marMendoza/NexOrderPro.git
-   cd NexOrderPro
+   - git clone https://github.com/Jorge0marMendoza/NexOrderPro.git
+   - cd NexOrderPro
 
 2. Install .NET Core 8 SDK if you haven't already.
 
