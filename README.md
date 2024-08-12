@@ -12,7 +12,7 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
 7. [Database Schema](#database-schema)
 
 ## Features
-- Homw Landing Page
+- Home Landing Page
 - View a list of car cleaning products
 - Create new orders
 - View existing orders
@@ -42,9 +42,24 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
 5. Return to the root directory and restore .NET packages:
    - cd ..
    - dotnet restore
+  
+### SQLite Setup
+SQLite is included in the .NET Core SDK, so you don't need to install it separately. However, you'll need to set up the database for your application:
+
+1. Ensure you have the Entity Framework Core tools installed:
+   - dotnet tool install --global dotnet-ef
+     
+2. Create the initial migration (if not already created):
+   - dotnet ef migrations add InitialCreate
+  
+3. Apply the migration to create the database:
+  - dotnet ef database update
+
+4. The SQLite database file (typically named NexOrderPro.db) will be created in your project root.
    
-6. Update the database with the latest migrations:
-   dotnet ef database update
+5. To view or modify the database directly, you can use a SQLite browser tool like DB Browser for SQLite.
+
+6. If you need to reset the database, you can delete the .db file and run dotnet ef database update again.
 
 ## Running the Application
 
@@ -68,6 +83,7 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
 6. **Asynchronous Operations**: All database operations are performed asynchronously to improve performance and responsiveness.
 
 7. **Error Handling**: Implemented try-catch blocks in the service layer to handle and log exceptions.
+
 
 ## API Endpoints
 
@@ -109,10 +125,12 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
   - **Code**: 500  
   - **Content**: `{ "error": "An error occurred while processing your request." }`
 
+
 ## Database Schema
 The application uses a SQLite database with the following schema:
 
 ### Products Table
+
 CREATE TABLE Products (
     ProductId INT PRIMARY KEY,
     ProductName VARCHAR(255),
@@ -122,6 +140,7 @@ CREATE TABLE Products (
 );
 
 ### Orders Table
+
 CREATE TABLE Orders (
     OrderId INT PRIMARY KEY,
     ProductId INT,
@@ -130,4 +149,13 @@ CREATE TABLE Orders (
     OrderDate DATETIME,
     FOREIGN KEY (ProductId) REFERENCES Products(ProductId)
 );
+
+### Initial Data
+The database is pre-populated with sample data for both Products and Orders tables.The script to create and populate the table is included for use.
+
+1. After creating your database (as described in the SQLite Setup and Usage section), you can run this script to populate it with initial data.
+2. If you're using Entity Framework Core migrations, you can include this script in a migration to ensure the database is always populated with this initial data when the migrations are applied.
+3. Alternatively, you can run this script manually using a SQLite client or incorporate it into your application's startup process to ensure the database always has this initial data.
+
+Remember to adjust your application's database connection string to point to the correct SQLite database file location.
 
