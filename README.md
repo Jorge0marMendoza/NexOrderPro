@@ -9,12 +9,14 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
 4. [Running the Application](#running-the-application)
 5. [Design Decisions and Approaches](#design-decisions-and-approaches)
 6. [API Endpoints](#api-endpoints)
+7. [Database Schema](#database-schema)
 
 ## Features
-
+- Homw Landing Page
 - View a list of car cleaning products
 - Create new orders
 - View existing orders
+- View selected order details
 
 ## Technologies Used
 
@@ -107,6 +109,25 @@ NexOrderPro is a web application built with ASP.NET Core 8 and React, designed t
   - **Code**: 500  
   - **Content**: `{ "error": "An error occurred while processing your request." }`
 
+## Database Schema
+The application uses a SQLite database with the following schema:
 
+### Products Table
+CREATE TABLE Products (
+    ProductId INT PRIMARY KEY,
+    ProductName VARCHAR(255),
+    Description TEXT,
+    ProductPrice DECIMAL(10, 2),
+    Category VARCHAR(255)
+);
 
+### Orders Table
+CREATE TABLE Orders (
+    OrderId INT PRIMARY KEY,
+    ProductId INT,
+    CustomerName VARCHAR(255),
+    Quantity INT,
+    OrderDate DATETIME,
+    FOREIGN KEY (ProductId) REFERENCES Products(ProductId)
+);
 
